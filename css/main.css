@@ -1,0 +1,262 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+.section-content,
+section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+section {
+    overflow: hidden;
+    min-height: 100vh;
+    justify-content: center;
+}
+.header {
+    background: #000f35 url("../img/bg-1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 500px;
+}
+
+.header__baby {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+}
+
+.header__baby2 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.about { 
+    background: #000f35 url("../img/bg-2.gif");
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: top center;
+    min-height: 500px;
+}
+
+.about__container { 
+ 
+    font-size: 1.85rem;
+    line-height: 1.4em;
+    display: block;
+    height: auto;
+    max-height: 100%;
+    position: relative;
+    overflow-y: auto;
+    background: url(../img/bg-2.2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+.text__container { 
+    width: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    /* height: 100px; */
+    max-height: 500px;
+    background-size: auto 100%;
+    background-repeat: repeat-x; 
+    color: #fff200;
+    font-family: Times New Roman,Times,serif;
+    font-size: 1.7em;
+    line-height: 1.2em;
+    font-weight: 700;
+    position: relative;
+    border: 2px solid #cfcfcf;
+}
+.about__div { 
+    position: relative;
+    height: auto;
+    max-height: 100%;
+    overflow: auto;
+}
+
+.comment { 
+    background: #000f35 url("../img/bg-3.gif");
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: top center;
+    min-height: 500px;
+}
+/* Button */
+.btn-main {
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+}
+.font-comic {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.grey-btn {
+    background: #adadad;
+    color: blue;
+}
+.grey-btn:hover {
+    color: yellow;
+}
+.grey-border {
+    border-color: #cbcbcb #4e474e #4e474e #cbcbcb;
+    border-style: solid;
+    border-width: 5px;
+}
+.tickets-btn {
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    line-height: 2em;
+    font-size: calc(14px + (1400vh - 7000px) / 500);
+    text-transform: uppercase;
+}
+
+.aon {
+    background: url(../img/aon.gif) 50% / contain no-repeat;
+    width: 18%;
+}
+
+.rainbow {
+    /* Font options */
+    font-family: "Pacifico", cursive;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 40px;
+
+    /* Chrome, Safari, Opera */
+    -webkit-animation: rainbow 5s infinite;
+
+    /* Internet Explorer */
+    -ms-animation: rainbow 5s infinite;
+
+    /* Standar Syntax */
+    animation: rainbow 5s infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rainbow {
+    0% {
+        color: orange;
+    }
+    10% {
+        color: purple;
+    }
+    20% {
+        color: red;
+    }
+    30% {
+        color: CadetBlue;
+    }
+    40% {
+        color: yellow;
+    }
+    50% {
+        color: coral;
+    }
+    60% {
+        color: green;
+    }
+    70% {
+        color: cyan;
+    }
+    80% {
+        color: DeepPink;
+    }
+    90% {
+        color: DodgerBlue;
+    }
+    100% {
+        color: orange;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes rainbow {
+    0% {
+        color: orange;
+    }
+    10% {
+        color: purple;
+    }
+    20% {
+        color: red;
+    }
+    30% {
+        color: CadetBlue;
+    }
+    40% {
+        color: yellow;
+    }
+    50% {
+        color: coral;
+    }
+    60% {
+        color: green;
+    }
+    70% {
+        color: cyan;
+    }
+    80% {
+        color: DeepPink;
+    }
+    90% {
+        color: DodgerBlue;
+    }
+    100% {
+        color: orange;
+    }
+}
+
+/* Standar Syntax */
+@keyframes rainbow {
+    0% {
+        color: orange;
+    }
+    10% {
+        color: purple;
+    }
+    20% {
+        color: red;
+    }
+    30% {
+        color: CadetBlue;
+    }
+    40% {
+        color: yellow;
+    }
+    50% {
+        color: coral;
+    }
+    60% {
+        color: green;
+    }
+    70% {
+        color: cyan;
+    }
+    80% {
+        color: DeepPink;
+    }
+    90% {
+        color: DodgerBlue;
+    }
+    100% {
+        color: orange;
+    }
+}

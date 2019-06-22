@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>In Memory of AONROBOT</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/vendor/all.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+</head>
+
+<body>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=123734318345885&autoLogAppEvents=1"></script>
+    <section class="header">
+        <img src="./img/title.gif" class="animated jackInTheBox" alt="" style="max-width: 100%">
+        <h2 class="rainbow  ">This motherfucker is going to leave the company. Leave a message for him?</h2>
+        <img src="./img/hackerman.png" alt="" width="350px" class="animated tada " style="margin-top: 10px;">
+        <div>
+            <img src="./img/babygif.gif" alt="" class="header__baby">
+            <img src="./img/babygif.gif" alt="" class="header__baby2">
+        </div>
+        <div class="d-flex " style="min-width: 555px;">
+            <div class="aon animated tada infinite delay-3s" ></div>
+            <button class="font-comic  grey-btn  grey-border tickets-btn btn-main">
+                Write Message to AUTTAWUT
+            </button>
+            <div class="aon animated tada infinite delay-3s"></div>
+
+        </div>
+        <a href="" style="text-align:center; color: lightblue;">
+            Who the hell is AUTTAWUT?
+        </a>
+
+        <img src="./img/counter.png" alt="" class="mt-3">
+        <small style="color: yellow;">Just a fake number, No one give a shit about this site.</small>
+    </section>
+
+    <section class="about p-5">
+        <img src="./img/about-text.gif" alt="" style="max-width: 100%">
+        <div class="container">
+            <div class="about__container text__container p-3">   
+                <div class="about__div">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                No Content.
+                            </p>
+                            <small>Please Contribute story about him.
+                                Email Us : <a href="mailto:auttawir@metrosystems.co.th" target="_blank">auttawir@metrosystems.co.th</a>
+                            </small>
+
+                            <img src="./img/tenor.gif" alt="" style="max-width: 100%">
+                        </div>
+                        <div class="col-md-6">
+                            <!-- <img src="./img/durex-aon.gif" alt="" width="100%" style="max-width: 100%; height: 400px;"> -->
+                            <div class="w3-content " style="max-width:800px; height: 380px;">
+                                    <img class="mySlides" src="./img/durex-aon.gif" style="width:100%; height: 350px;">
+                                    <img class="mySlides" src="./img/aon1.gif" style="width:100%; height: 350px;">
+                                    <img class="mySlides" src="./img/aon2.gif" style="width:100%; height: 350px;">
+                                  </div>
+                                  
+                                  <div class="w3-center text-center">
+                                    <div class="w3-section">
+                                      <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
+                                      <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+                                    </div>
+                                    <button class="w3-button demo" onclick="currentDiv(1)">1</button> 
+                                    <button class="w3-button demo" onclick="currentDiv(2)">2</button> 
+                                    <button class="w3-button demo" onclick="currentDiv(3)">3</button> 
+                                  </div>
+                                  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="comment py-5">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="./img/aon.gif" class="animated shake  delay-3s" alt="" style="max-width: 100%" width="100%">
+                </div>
+                <div class="col-md-9">
+                        <img src="./img/comment.gif" alt="" style="max-width: 100%" width="100%">
+                        <div class="bg-white text-center p-5 mt-3 " style="border-radius: 10px;">
+                            <!-- FB -->
+                            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background: #ceaf35; min-height: 200px; " class="d-flex align-items-center justify-content-center flex-column py-4">
+        <img src="./img/rate.jpg" alt="" style="width: 300px;">
+        <p class="m-0">Notice : “Your comments would be greatly appreciated.” Thank you for wanting to be polite.</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="./js/vendor/bootstrap.min.js"></script>
+
+    <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+            
+            function plusDivs(n) {
+              showDivs(slideIndex += n);
+            }
+            
+            function currentDiv(n) {
+              showDivs(slideIndex = n);
+            }
+            
+            function showDivs(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+              if (n > x.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = x.length}
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-red", "");
+              }
+              x[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " w3-red";
+            }
+            </script>
+</body>
+
+</html>
