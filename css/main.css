@@ -261,3 +261,31 @@ section {
         color: orange;
     }
 }
+
+
+
+.message_container { 
+    height: 500px;
+    background: #2dc3ff;
+    border: 2px solid #cfcfcf;
+    margin-top: 30px;
+}
+
+.author  {
+    display: flex;
+    justify-content: space-between;
+   
+    margin-left: 10px;
+}
+.author .time { 
+    color: #165770;
+    font-size: 12px;
+    font-weight: 300;
+}
+.message__item { 
+    border-bottom: 1px solid #d400ff;
+}
+.message__item .text{ 
+    font-size: 80%;
+    margin-top: 10px;
+}

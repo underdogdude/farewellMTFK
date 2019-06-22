@@ -114,13 +114,28 @@
                                 data-use-continue-as="true" data-onlogin="fbLogin"></div>
                         </div>
 
-
-
                         <div id="user">
 
                         </div>
 
                         <div id="form"></div>
+
+                        <div id="message_container" class="message_container text-left p-3">
+
+                            <div class="message__item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle img-thumbnail" src="http://graph.facebook.com/${useriD}/picture?type=square" >
+                                    <div class="author w-100">
+                                        <span>
+                                            <strong>@sdafsdfs</strong>
+                                        </span>
+                                        <span class="time">timepzpne</span>
+                                    </div>
+                                </div>
+                                <p class="text">Hello test</p>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -140,6 +155,16 @@
     </script>
     <script src="./js/vendor/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+
+    <!-- Firebase -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 
     <script>
         var slideIndex = 1;
@@ -189,6 +214,7 @@
             if (useriD.length) {
                 injectUserData();
             } else {
+
                 console.log('NO data');
             }
         }
@@ -207,13 +233,18 @@
             $("#user").html(string);
 
         }
+        // TODO
         injectForm();
-
         function injectForm() {
 
             var string = `
                 <form id="messageForm" class="d-flex align-items-center w-100 flex-column" >
                 <textarea id="messageText" class="form-control w-100" rows="10" name="message" placeholder="leave him a message" required></textarea>
+
+                    <label class="my-2">
+                        <input type="checkbox" id="isAnonymous" />
+                        Show Message as 'Anonymous'
+                    </label>
 
                     <button class="font-comic  grey-btn  grey-border tickets-btn btn-main" type="submit" style="border-color: blue;">
                         Write Message to AUTTAWUT
@@ -227,10 +258,9 @@
             event.preventDefault();
 
             var message = $("#messageText").val();
-            
+            var isAnonymous =  $('#isAnonymous:checked').length > 0;
+            writeUserData(isAnonymous, message);
         });
-
-
 
         function fbLogin() {
 
@@ -247,6 +277,47 @@
                 }
             });
         }
+
+        // Install firebase
+        var config = {
+            apiKey: "AIzaSyB-7eJKjraYNGayNbyl_qm4DLQYbDpgvpg",
+            authDomain: "farewellMTFK.firebaseapp.com",
+            databaseURL: "https://farewellmtfk.firebaseio.com/",
+        };
+
+        
+        firebase.initializeApp(config);
+        // Get a reference to the database service
+        var database = firebase.database();
+    
+        function writeUserData(isAnonymous, msg) {
+            // TODO Change new Date() to User ID
+            var timestamp = Date.now();
+            var primaryKey = useriD + "-" + timestamp 
+            firebase.database().ref('users/' + primaryKey).set({
+                id: useriD,
+                username: userName,
+                isAnonymous: isAnonymous,
+                message: msg
+            });
+        }
+
+        // TODO remove trigger
+        readUserData();
+        function readUserData() { 
+            var starCountRef = firebase.database().ref('users/');
+                starCountRef.on('value', function(snapshot) {
+                    setMessage(snapshot.val());
+                });
+        }
+
+        // @param data is "xxxxx-yyyy" xxxxx = ID , yyyyy = timestamp
+        function setMessage(data) {
+            console.log(data,' value');
+
+        }   
+
+
     </script>
 </body>
 
