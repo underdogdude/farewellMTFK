@@ -269,6 +269,7 @@ section {
     background: #2dc3ff;
     border: 2px solid #cfcfcf;
     margin-top: 30px;
+    overflow: auto;
 }
 
 .author  {

@@ -121,20 +121,6 @@
                         <div id="form"></div>
 
                         <div id="message_container" class="message_container text-left p-3">
-
-                            <div class="message__item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle img-thumbnail" src="http://graph.facebook.com/${useriD}/picture?type=square" >
-                                    <div class="author w-100">
-                                        <span>
-                                            <strong>@sdafsdfs</strong>
-                                        </span>
-                                        <span class="time">timepzpne</span>
-                                    </div>
-                                </div>
-                                <p class="text">Hello test</p>
-                            </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -235,6 +221,7 @@
         }
         // TODO
         injectForm();
+
         function injectForm() {
 
             var string = `
@@ -258,8 +245,12 @@
             event.preventDefault();
 
             var message = $("#messageText").val();
-            var isAnonymous =  $('#isAnonymous:checked').length > 0;
+            var isAnonymous = $('#isAnonymous:checked').length > 0;
             writeUserData(isAnonymous, message);
+
+            alert('สำเร็จ!!');
+            $("#messageText").val('');
+
         });
 
         function fbLogin() {
@@ -285,39 +276,94 @@
             databaseURL: "https://farewellmtfk.firebaseio.com/",
         };
 
-        
         firebase.initializeApp(config);
         // Get a reference to the database service
         var database = firebase.database();
-    
+
         function writeUserData(isAnonymous, msg) {
             // TODO Change new Date() to User ID
             var timestamp = Date.now();
-            var primaryKey = useriD + "-" + timestamp 
+            var primaryKey = useriD + "-" + timestamp
             firebase.database().ref('users/' + primaryKey).set({
                 id: useriD,
                 username: userName,
                 isAnonymous: isAnonymous,
-                message: msg
+                message: msg,
+                timestamp: timestamp
             });
         }
 
         // TODO remove trigger
         readUserData();
-        function readUserData() { 
+
+        function readUserData() {
             var starCountRef = firebase.database().ref('users/');
-                starCountRef.on('value', function(snapshot) {
-                    setMessage(snapshot.val());
-                });
+            starCountRef.on('value', function (snapshot) {
+                setMessage(snapshot.val());
+            });
         }
 
         // @param data is "xxxxx-yyyy" xxxxx = ID , yyyyy = timestamp
-        function setMessage(data) {
-            console.log(data,' value');
+        function setMessage(val) {
 
-        }   
+            var data = arrayReverseObj(val);
+            console.log(data);
 
+            $('#message_container').empty();
+            var string = '';
 
+            for(var i = 0 ; i<data.length ; i++) { 
+                // var arr = key.split("-");
+                    var img = '';
+                    var name = '';
+
+                    if (data[i].isAnonymous) {
+                        img =
+                            `<img class="rounded-circle img-thumbnail" src="https://i.pinimg.com/originals/0e/ca/cf/0ecacf1245c5e8c723414ea1a19407cf.jpg" style="width: 40px; height: 40px;" />`;
+                        name = `Anonymous`;
+
+                    } else {
+                        img =
+                            `<img class="rounded-circle img-thumbnail" src="http://graph.facebook.com/${data[i].id}/picture?type=square" style="width: 40px; height: 40px;" />`;
+                        name = '@' + data[i].username
+
+                    }
+
+                    string += `
+                        <div class="message__item mt-2">
+                            <div class="d-flex align-items-center">
+                                ${ img }
+                                <div class="author w-100">
+                                    <span>
+                                        <strong>${ name }</strong>
+                                    </span>
+                                    <span class="time">${ convertTimestampToDate(Number(data[i].timestamp)) }</span>
+                                </div>
+                            </div>
+                            <p class="text">${ data[i].message } </p>
+                        </div>
+                    `;
+            }
+            $('#message_container').append(string);
+        }
+
+        function convertTimestampToDate(unix_timestamp) {
+
+            var date = new Date(unix_timestamp);
+            return date;
+        }
+
+        function arrayReverseObj(obj) {
+
+            let newArray = []
+            Object.keys(obj)
+                .sort()
+                .reverse()
+                .forEach(key => {
+                    newArray.push(obj[key])
+                });
+            return newArray
+        }
     </script>
 </body>
 
