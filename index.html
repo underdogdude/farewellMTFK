@@ -8,7 +8,7 @@
 
     <!-- FB -->
     <meta property="fb:app_id" content="123734318345885" />
-
+    <link rel="icon" type="image/png" href="./img/aon-gun.gif" />
 
     <title>In Memory of AONROBOT</title>
 
@@ -137,6 +137,8 @@
         <p class="m-0">Notice : “Your comments would be greatly appreciated.” Thank you for wanting to be polite.</p>
     </footer>
 
+
+    
     <!-- JS -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -407,6 +409,31 @@
                     isDelete: true
                 })
             }
+        }
+
+        window.onload = function(){
+            //time is set in milliseconds
+            setInterval(randomImage, 9000)
+        };
+        randomImage()
+
+        function randomImage() { 
+
+            $("#gun").remove();
+
+            var img = `<img src="./img/aon-gun.gif" id="gun" alt="" style="position: fixed; max-width: 100%; width: 250px; bottom: 0; right: ${Math.floor(Math.random() * 100)}%" >`;
+
+            $("body").append(img);
+            var element =  document.querySelector('#gun')
+                element.classList.add('animated', 'slideInUp', 'slower')
+
+                element.addEventListener('animationend', function() { 
+
+                    element.classList.remove('slideInUp', 'slower');
+                    element.classList.add('slideOutDown', 'slower');
+
+                })
+            
         }
     </script>
 </body>
